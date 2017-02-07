@@ -1,0 +1,50 @@
+{
+  "name": "cwrc-basic-delegator",
+  "version": "0.0.0-development",
+  "description": "NPM module to which the CWRC-Writer delegates server side calls for file creation, retrieval, and update; entity lookups; schema retrieval; xml validation; template loading",
+  "main": "index.js",
+  "scripts": {
+    "commit": "git-cz",
+    "check-coverage": "istanbul check-coverage --statements 20 --branches 0 --functions 20 --lines 20",
+    "report-coverage": "cat ./coverage/lcov.info | codecov",
+    "test": "mocha spec -w",
+    "test:single": "istanbul cover -x *.test.js _mocha -- -R spec spec",
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jchartrand/CWRC-BasicDelegator.git"
+  },
+  "keywords": [
+    "xml",
+    "edit"
+  ],
+  "author": "“James <“jc.chartrand@gmail.com”> (http://openskysolutions.ca)",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/jchartrand/CWRC-BasicDelegator/issues"
+  },
+  "homepage": "https://github.com/jchartrand/CWRC-BasicDelegator#readme",
+  "devDependencies": {
+    "chai": "3.5.0",
+    "codecov.io": "0.1.6",
+    "commitizen": "2.9.5",
+    "cz-conventional-changelog": "1.2.0",
+    "ghooks": "2.0.0",
+    "istanbul": "0.4.5",
+    "mocha": "3.2.0",
+    "semantic-release": "^6.3.2"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  },
+  "config": {
+    "ghooks": {
+      "pre-commit": "npm run test:single && npm run check-coverage"
+    }
+  },
+  "dependencies": {
+    "jquery": "3.1.1",
+    "octokit": "0.10.4"
+  }
+}
