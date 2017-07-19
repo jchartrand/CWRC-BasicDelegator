@@ -2,6 +2,8 @@
 
 # CWRC-BasicDelegator
 
+## This module supported our old public demo.  It shouldn't be used as an example of how to configure the back end of the CWRC-Writer.  A better starting point for understanding how to configure the CWRC-Writer for your own system is [CWRC-GitWriter](https://github.com/cwrc/CWRC-GitWriter).
+
 [![Travis](https://img.shields.io/travis/jchartrand/CWRC-BasicDelegator.svg)](https://travis-ci.org/jchartrand/CWRC-BasicDelegator)
 [![Codecov](https://img.shields.io/codecov/c/github/jchartrand/CWRC-BasicDelegator.svg)](https://codecov.io/gh/jchartrand/CWRC-BasicDelegator)
 [![version](https://img.shields.io/npm/v/cwrc-basic-delegator.svg)](http://npm.im/cwrc-basic-delegator)
@@ -22,6 +24,8 @@
 
 ### Overview
 
+#DEPRECATED
+
 NPM module to which the CWRC-Writer delegates server side calls for file creation, retrieval, and update; entity lookups; schema retrieval; xml validation; template loading.
 
 ### Demo 
@@ -41,17 +45,16 @@ or in shortcut form:
 
 ### Use
 
-One example:
-
+```
 let DelegatorConstructor = require('cwrc-basic-delegator');
 let delegator = new DelegatorConstructor(cwrcWriter);
+```
 
-where cwrcWriter is an instance of the CWRC[CWRC-Writer](https://github.com/cwrc/CWRC-Writer)Writer.
+where cwrcWriter is an instance of the [CWRC-Writer](https://github.com/cwrc/CWRC-Writer).
 
-The spec directory contains specifications (tests) that can help better understand the API. Also see [CWRC-GitServer](https://github.com/cwrc/CWRC-GitServer) which fully uses the API.
+The spec directory contains specifications (tests) that can help better understand the API. Also see [CWRC-Writer](https://github.com/cwrc/CWRC-Writer) which fully uses the API of the delegator.
 
 ### API
-
 
 The API is for the moment defined on a class instantiated from the NPM module import (in other words, require(cwrc-basic-delegator) returns a constructor function with which to create the actual delegator.) The methods defined on the delegator are:
 
@@ -69,7 +72,6 @@ The API is for the moment defined on a class instantiated from the NPM module im
 * `npm test` to start mocha and automatically rerun the tests whenever you change a file
 
 * change some stuff to satisfy new test
-
 
 ### Commit to Github / Build in Travis / Release to NPM
 
@@ -103,7 +105,7 @@ semantic-release-cli setup
 ? What CI are you using? Travis CI
 ```
 
-Semantic-release sets up a Travis build (on the Travis web site in the Travis account associated with the given Github username) and a trigger in GitHub to run the Travis build on the Travis site whenever you push a change to the GitHub repo.  The Travis build will also deploy a new version to the NPM registry if the commited change is either a new feature or a breaking change.
+Semantic-release configures up a Travis build (on the Travis web site in the Travis account associated with the given Github username). The Travis build will  deploy a new version to the NPM registry if the commited change is either a new feature or a breaking change.
 
 To submit a commit, stage your changes (e.g., git add -A) then instead of using git's commit command, instead use `npm run commit` which uses commitizen to create commits that are structured to adhere to the semantic-release conventions (which are the same as those used by Google: https://github.com/angular/angular.js/blob/master/CONTRIBUTING.md#commit )
 
@@ -131,11 +133,11 @@ Results of the travis build are here:
 
 `https://travis-ci.org/jchartrand/CWRC-BasicDelegator` 
 
-The Travis build also publishes the code coverage statistics to codecov.io where the coverage can be viewed:
+The Travis build also publishes the code coverage statistics to codecov.io:
 
 `https://codecov.io/gh/jchartrand/CWRC-BasicDelegator/`
 
- codecov.io also provides us with the code coverage badge at the top of this README.
+ codecov.io provides us with the code coverage badge at the top of this README.
 
 Finally the Travis build publishes a new version (if the commit was designated as a new feature or breaking change) to NPM:
 
